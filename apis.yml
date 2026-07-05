@@ -1,0 +1,140 @@
+aid: idexx-labs
+url: https://raw.githubusercontent.com/api-evangelist/idexx-labs/refs/heads/main/apis.yml
+name: IDEXX
+kind: company
+description: IDEXX Laboratories is a global leader in veterinary diagnostics, offering
+  reference laboratory testing, in-house analyzers (IDEXX VetLab Station), diagnostic
+  imaging (IDEXX Web PACS), and practice management software (Cornerstone, Neo, and
+  ezyVet, which IDEXX acquired in 2021). IDEXX connects the practice to its diagnostic
+  ecosystem through VetConnect PLUS - a diagnostic results and ordering platform - and
+  through partner integration APIs for Web PACS imaging and reference/in-house lab
+  results. These developer integrations are partner-gated - the developer portal at
+  developer.vetconnectplus.com requires an authenticated login, and partner access is
+  granted only after an approved IDEXX integration request. Web PACS API Partner
+  integrations authenticate with OAuth 2.0-style credentials (Client ID, Client Secret,
+  and Grant Type) issued by IDEXX customer support. IDEXX does not publish an open,
+  unauthenticated API reference, OpenAPI description, or pricing; the logical APIs below
+  are modeled from IDEXX's public product and integration pages, not from a public
+  endpoint reference.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Veterinary
+- Diagnostics
+- Reference Labs
+- Diagnostic Imaging
+- Animal Health
+- Healthcare
+- VetConnect PLUS
+- Web PACS
+- Partner Gated
+created: '2026-07-05'
+modified: '2026-07-05'
+specificationVersion: '0.19'
+apis:
+- aid: idexx-labs:idexx-labs-vetconnect-plus-results-api
+  name: IDEXX VetConnect PLUS Diagnostic Results API
+  tags:
+  - Lab Results
+  - Diagnostics
+  - VetConnect PLUS
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.idexx.com/en/veterinary/software-services/vetconnect-plus/
+  baseURL: https://developer.vetconnectplus.com
+  properties:
+  - url: https://www.idexx.com/en/veterinary/software-services/vetconnect-plus/
+    type: Documentation
+  - url: https://developer.vetconnectplus.com/
+    type: APIReference
+  description: Retrieve diagnostic results from IDEXX Reference Laboratories and IDEXX
+    in-house analyzers (VetLab Station), including real-time test status updates and
+    the full IDEXX diagnostic history for a patient. Surfaced to practice management
+    partners through VetConnect PLUS. Partner-gated - access requires an authenticated
+    developer.vetconnectplus.com login and an approved IDEXX integration. (Capability
+    confirmed from IDEXX product pages; endpoints modeled, not from a public reference.)
+- aid: idexx-labs:idexx-labs-vetconnect-plus-orders-api
+  name: IDEXX VetConnect PLUS Diagnostic Orders API
+  tags:
+  - Lab Orders
+  - Test Requests
+  - VetConnect PLUS
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.idexx.com/en/veterinary/software-services/vetconnect-plus/
+  baseURL: https://developer.vetconnectplus.com
+  properties:
+  - url: https://www.idexx.com/en/veterinary/software-services/vetconnect-plus/
+    type: Documentation
+  - url: https://developer.vetconnectplus.com/
+    type: APIReference
+  description: Submit electronic test requests (orders) from a practice management system
+    to IDEXX Reference Laboratories and configure in-house analyzer runs, then track
+    order status through VetConnect PLUS. Partner-gated behind the VetConnect PLUS
+    developer login. (Electronic ordering confirmed from IDEXX integration pages;
+    endpoints modeled, not from a public reference.)
+- aid: idexx-labs:idexx-labs-web-pacs-imaging-api
+  name: IDEXX Web PACS Diagnostic Imaging API
+  tags:
+  - Diagnostic Imaging
+  - PACS
+  - DICOM
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.idexx.com/en/veterinary/diagnostic-imaging-telemedicine-consultants/web-pacs/
+  baseURL: https://developer.vetconnectplus.com
+  properties:
+  - url: https://www.idexx.com/en/veterinary/diagnostic-imaging-telemedicine-consultants/web-pacs/
+    type: Documentation
+  description: The IDEXX Web PACS "API Partner" integration lets an imaging or practice
+    management partner send diagnostic imaging requests and link captured DICOM studies
+    (x-ray, ultrasound, CT, MR, IO) back to the patient record for viewing in Web PACS.
+    Partner integrations authenticate with a Client ID, Client Secret, and Grant Type
+    issued by IDEXX customer support (OAuth 2.0-style client credentials). Partner-gated.
+    (Integration type and credential model confirmed from IDEXX and PIMS partner docs;
+    endpoints modeled.)
+- aid: idexx-labs:idexx-labs-vetconnect-plus-reference-data-api
+  name: IDEXX VetConnect PLUS Reference Data API
+  tags:
+  - Reference Data
+  - Test Catalog
+  - Diagnostics
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.idexx.com/en/veterinary/software-services/vetconnect-plus/
+  baseURL: https://developer.vetconnectplus.com
+  properties:
+  - url: https://www.idexx.com/en/veterinary/software-services/vetconnect-plus/
+    type: Documentation
+  description: Reference resources that underpin ordering and results - the IDEXX test
+    and panel catalog, analyte/test codes, units, and reference ranges - used to map a
+    partner's requests and result displays to IDEXX diagnostics. Partner-gated.
+    (Reference-data category inferred from the ordering/results workflow; endpoints
+    modeled, not from a public reference.)
+- aid: idexx-labs:idexx-labs-vetconnect-plus-authentication
+  name: IDEXX VetConnect PLUS Authentication
+  tags:
+  - OAuth
+  - Authentication
+  - Partner Access
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.vetconnectplus.com/
+  baseURL: https://developer.vetconnectplus.com
+  properties:
+  - url: https://developer.vetconnectplus.com/
+    type: Documentation
+  description: OAuth 2.0-style authentication for IDEXX partner integrations. The
+    developer.vetconnectplus.com portal is login-gated (the sign-in flow carries OAuth
+    parameters), and Web PACS API Partner integrations exchange a Client ID, Client
+    Secret, and Grant Type - all issued by IDEXX customer support - for access.
+    (Auth model confirmed from IDEXX/PIMS partner configuration docs; token endpoint
+    modeled.)
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/idexx-laboratories
+- type: Website
+  url: https://www.idexx.com
+- type: Documentation
+  url: https://developer.vetconnectplus.com/
+- type: SoftwareIntegrations
+  url: https://software.idexx.com/integrations
+- type: IntegrationRequest
+  url: https://www.idexx.com/en/veterinary/software-services/idexx-practice-management-software-integration-request-form/
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

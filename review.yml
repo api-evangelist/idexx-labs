@@ -1,0 +1,110 @@
+aid: idexx-labs
+name: IDEXX
+review:
+  question: Does IDEXX expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-05'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. IDEXX's partner integration surfaces
+    (VetConnect PLUS diagnostic results/orders and the Web PACS "API Partner"
+    imaging integration) are request/response REST-style HTTP integrations
+    behind an authenticated developer portal. No public, documented server-push
+    transport (WebSocket wss:// or SSE) exists on IDEXX's own developer surface
+    to model. "Real-time test status updates" in VetConnect PLUS are delivered
+    within the VetConnect PLUS application and to partner PIMS, not via a
+    published WebSocket API.
+findings:
+  summary: |
+    IDEXX does not publish a documented public WebSocket API. IDEXX Laboratories
+    is a veterinary diagnostics company (reference labs, in-house VetLab Station
+    analyzers, Web PACS imaging) and a PIMS vendor (Cornerstone, Neo, and ezyVet).
+    Its developer/partner integrations are gated: the developer portal at
+    developer.vetconnectplus.com requires an authenticated login (the sign-in
+    flow carries OAuth 2.0 parameters), and partner access is granted only after
+    an approved IDEXX integration request submitted through IDEXX customer
+    support / the practice-management integration request form. IDEXX Web PACS
+    "API Partner" integrations authenticate with a Client ID, Client Secret, and
+    Grant Type issued by IDEXX support (OAuth 2.0-style client credentials).
+    IDEXX publishes no open, unauthenticated API reference, OpenAPI description,
+    or pricing. No WebSocket (ws:// or wss://) endpoint is documented on any
+    public IDEXX developer surface.
+  accessModel: |
+    Fully partner-gated. There is no self-service developer signup or public
+    endpoint reference. To integrate, a practice/partner must have an IDEXX
+    VetConnect PLUS account (obtained by contacting IDEXX customer support) and,
+    for API Partner integrations such as Web PACS, receive Client ID / Client
+    Secret / Grant Type credentials from IDEXX. Pricing for diagnostics and
+    software is quote/contact-sales; no public API pricing tier exists.
+  ownedProducts: |
+    IDEXX owns ezyVet (acquired June 2021, including Vet Radar) and offers the
+    Cornerstone and Neo PIMS. ezyVet is documented separately in this catalog
+    (all/ezyvet) and has its own publicly documented, partner-gated RESTful API
+    at developers.ezyvet.com. This IDEXX entry covers the IDEXX-branded
+    diagnostic and imaging integration surfaces (VetConnect PLUS, Web PACS,
+    reference/in-house labs), which are distinct from the ezyVet PIMS API.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://developer.vetconnectplus.com
+      documented: false
+      note: >
+        VetConnect PLUS partner integration (diagnostic results and orders).
+        Documentation is behind an authenticated developer portal login; no
+        public endpoint reference is available.
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: >
+        IDEXX Web PACS "API Partner" imaging integration. Authenticates with
+        Client ID / Client Secret / Grant Type issued by IDEXX support. Partners
+        select "API Partner" as the integration type in their PIMS; no public
+        endpoint reference.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: >
+        No WebSocket endpoint is documented anywhere on IDEXX's public developer
+        or integration surfaces as of the review date.
+  endpointsConfirmedRest: []
+  endpointsModeled: true
+  endpointsModeledNote: |
+    The logical APIs in apis.yml (Diagnostic Results, Diagnostic Orders, Web PACS
+    Imaging, Reference Data, and Authentication) are modeled from IDEXX's public
+    product and integration marketing pages and from PIMS partner configuration
+    docs (ezyVet, DaySmart Vet, Shepherd). No concrete request paths, methods, or
+    schemas were copied from a public IDEXX reference because none is published;
+    the developer portal is login-gated. No OpenAPI, plans, rate-limits, finops,
+    or collections files were authored, to avoid fabricating a surface that is
+    not publicly documented.
+sources:
+  - url: https://developer.vetconnectplus.com/
+    type: Documentation
+    note: IDEXX VetConnect PLUS developer portal - login-gated (OAuth 2.0 sign-in). No public docs.
+  - url: https://www.idexx.com/en/veterinary/software-services/vetconnect-plus/
+    type: Documentation
+    note: VetConnect PLUS product page - diagnostic results, ordering, real-time status.
+  - url: https://www.idexx.com/en/veterinary/diagnostic-imaging-telemedicine-consultants/web-pacs/
+    type: Documentation
+    note: IDEXX Web PACS product page - DICOM imaging (x-ray, ultrasound, CT, MR, IO).
+  - url: https://software.idexx.com/integrations
+    type: Documentation
+    note: IDEXX Software integrations directory (200+ integrations across ezyVet/Neo/Cornerstone).
+  - url: https://www.idexx.com/en/veterinary/software-services/idexx-practice-management-software-integration-request-form/
+    type: Documentation
+    note: Integration request form - the gated entry point to becoming an IDEXX integration partner.
+  - url: https://docs.ezyvet.com/en/see-all-integrations/diagnostic-imaging/idexx-web-pacs/configuration-of-idexx-web-pacs/configure-the-api-integration-for-idexx-web-pacs
+    type: Documentation
+    note: ezyVet config guide - Web PACS "API Partner" integration uses Client ID / Client Secret / Grant Type from IDEXX.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No public WebSocket surface exists, and IDEXX's own developer/partner
+    integrations are request/response HTTP behind an authenticated, partner-gated
+    developer portal. No AsyncAPI document was created because there is no
+    documented server-push transport on IDEXX's public surface to model, and no
+    OpenAPI/plans/rate-limits/finops files were authored because IDEXX publishes
+    no open endpoint reference or pricing - the entry is an honest partner-gated
+    stub with logical APIs modeled from public product pages.
