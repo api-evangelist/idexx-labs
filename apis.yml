@@ -125,6 +125,10 @@ apis:
     (Auth model confirmed from IDEXX/PIMS partner configuration docs; token endpoint
     modeled.)
 common:
+- type: TrustCenter
+  url: security/idexx-labs-trust-center.yml
+- type: DomainSecurity
+  url: security/idexx-labs-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/idexx-laboratories
 - type: Website

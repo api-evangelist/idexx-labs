@@ -1,0 +1,34 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.idexx.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Jan 23 23:59:59 2027 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: developer.vetconnectplus.com
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Aug 10 20:20:56 2026 GMT
+  hsts: false
+domains:
+- domain: idexx.com
+  dnssec: false
+  caa:
+  - 0 issuewild "letsencrypt.org"
+  - 0 issuewild "pki.goog"
+  - 0 issuewild "sectigo.com"
+  - 0 issue "amazon.com"
+  - 0 issue "digicert.com"
+  - 0 issue "letsencrypt.org"
+  spf: false
+  dmarc: true
+  dmarc_policy: reject
+- domain: vetconnectplus.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
