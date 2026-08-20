@@ -120,6 +120,9 @@ apis:
 - aid: idexx-labs:idexx-labs-vetconnect-plus-authentication
   name: IDEXX VetConnect PLUS Authentication
   tags:
+  - Authentication
+  - Partner Access
+  tags_raw:
   - OAuth
   - Authentication
   - Partner Access
