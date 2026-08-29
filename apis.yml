@@ -16,6 +16,17 @@ description: IDEXX Laboratories is a global leader in veterinary diagnostics, of
   unauthenticated API reference, OpenAPI description, or pricing; the logical APIs below
   are modeled from IDEXX's public product and integration pages, not from a public
   endpoint reference.
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - none
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
