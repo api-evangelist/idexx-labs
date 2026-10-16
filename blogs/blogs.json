@@ -1,0 +1,21 @@
+{
+  "repo": "idexx-labs",
+  "feeds": [
+    {
+      "source": "https://ir.idexx.com/news-events/press-releases",
+      "feed_url": "https://ir.idexx.com/news-events/press-releases/rss",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    },
+    {
+      "source": "https://ir.idexx.com/news-events/press-releases/rss",
+      "feed_url": "https://ir.idexx.com/news-events/press-releases/rss",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-10-10T13:15:00Z"
+}
